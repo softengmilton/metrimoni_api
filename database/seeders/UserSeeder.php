@@ -16,8 +16,10 @@ class UserSeeder extends Seeder
         User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Admin',
+            'customerId' => 'Admin',
             'email' => 'admin@gmail.com',
+            'password'  => 'password',
+            'phone' => '07' . rand(1000000000, 9999999999),
             'user_type' => 'guest',
         ]);
     }
