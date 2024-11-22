@@ -21,11 +21,28 @@ class RegisterRequest extends FormRequest
      */
     public function rules(): array
     {
+        $isUpdating = $this->isMethod('put') || $this->isMethod('patch');
+        $userId = $this->route('user');
         return [
-            'basicInfo.customerId'       => 'required',
-            'basicInfo.phone'       => 'required',
-            'basicInfo.email'            => 'required|email|unique:users,email',
-            'basicInfo.password'         => 'required|string|min:6',
+            'basicInfo.customerId' => [
+                'required',
+                $isUpdating ? null : 'unique:users,customerId,' . $userId,
+            ],
+
+            'basicInfo.phone' => [
+                'required',
+                $isUpdating ? null : 'unique:users,phone,' . $userId,
+            ],
+
+            'basicInfo.email' => [
+                'required',
+                'email',
+                $isUpdating ? null : 'unique:users,email,' . $userId,
+            ],
+
+            'basicInfo.password' => $isUpdating
+                ? 'nullable|string|min:6'
+                : 'required|string|min:6',
 
             'personalDetails.name' => 'required',
             'personalDetails.age' => 'required',
@@ -91,7 +108,9 @@ class RegisterRequest extends FormRequest
             'agreeMent.guardianWhatsApp' => 'required',
 
             'agreeMent.agreement' => 'required',
-            'agreeMent.photo' => 'required',
+            'agreeMent.photo' => $isUpdating
+            ? 'nullable' // Not required during updates
+            : 'required',
         ];
     }
 
