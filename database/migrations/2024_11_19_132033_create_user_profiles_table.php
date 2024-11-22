@@ -52,22 +52,22 @@ return new class extends Migration
             $table->string('backhome_city')->nullable(); // Example: "Sylhet", "Non-Sylheti"
 
             // Spouse Expectations
-            $table->string('citizen')->nullable()->comment('Spouse citizenship preference');
-            $table->string('occupation')->nullable()->comment('Spouse occupation preference');
-            $table->string('skinColour')->nullable()->comment('Spouse skin color preference');
-            $table->string('heightPreference')->nullable()->comment('Spouse height preference');
-            $table->string('educationPreference')->nullable()->comment('Spouse education preference');
-            $table->string('religiousDress')->nullable()->comment('Religious dress preference');
-            $table->string('agePreference')->nullable()->comment('Spouse age preference');
-            $table->string('areaOfChoice')->nullable()->comment('Preferred area of residence');
-            $table->string('preferCouncil')->nullable()->comment('Preferred council');
+            $table->string('spouse_citizen')->nullable()->comment('Spouse citizenship preference');
+            $table->string('spouse_occupation')->nullable()->comment('Spouse occupation preference');
+            $table->string('spouse_skinColour')->nullable()->comment('Spouse skin color preference');
+            $table->string('spouse_heightPreference')->nullable()->comment('Spouse height preference');
+            $table->string('spouse_educationPreference')->nullable()->comment('Spouse education preference');
+            $table->string('spouse_religiousDress')->nullable()->comment('Religious dress preference');
+            $table->string('spouse_agePreference')->nullable()->comment('Spouse age preference');
+            $table->string('spouse_areaOfChoice')->nullable()->comment('Preferred area of residence');
+            $table->string('spouse_preferCouncil')->nullable()->comment('Preferred council');
             $table->string('spouse_marital_status')->nullable()->comment('Preferred marital status');
-            $table->string('considerDivorce')->nullable()->comment('Consider divorced spouse');
-            $table->string('considerDivorceWithChildren')->nullable()->comment('Consider divorced spouse with children');
-            $table->string('considerWithDisabilities')->nullable()->comment('Consider spouse with disabilities');
-            $table->string('considerNonUkCitizen')->nullable()->comment('Consider non-UK citizen spouse');
-            $table->string('willingToRelocate')->nullable()->comment('Is spouse willing to relocate');
-            $table->string('livingArrangements')->nullable()->comment('Preferred living arrangements');
+            $table->string('spouse_considerDivorce')->nullable()->comment('Consider divorced spouse');
+            $table->string('spouse_considerDivorceWithChildren')->nullable()->comment('Consider divorced spouse with children');
+            $table->string('spouse_considerWithDisabilities')->nullable()->comment('Consider spouse with disabilities');
+            $table->string('spouse_considerNonUkCitizen')->nullable()->comment('Consider non-UK citizen spouse');
+            $table->string('spouse_willingToRelocate')->nullable()->comment('Is spouse willing to relocate');
+            $table->string('spouse_livingArrangements')->nullable()->comment('Preferred living arrangements');
             $table->string('weddingPlan')->nullable()->comment('Preferred wedding plan');
             $table->text('aboutYourself')->nullable()->comment('About self and spouse expectations');
             $table->string('guardianName')->nullable()->comment('Guardian name');
