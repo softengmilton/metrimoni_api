@@ -6,14 +6,14 @@ return [
         '31-40',
         '41-50',
     ],
-    'backhome_city' => [
+    'backhomeCityOptions' => [
         'Maulvibazar',
         'Non-Sylheti',
         'Sunamganj',
         'Sylhet',
         'Hajiganj',
     ],
-    'citizenship' => [
+    'citizenOptions' => [
         'British Citizen',
         'Indefinite Leave to Remain',
         'Non-British',
@@ -23,14 +23,14 @@ return [
         'Yes',
     ],
     'education_qualification' => [
-        'A Level',
-        'Doctorate Degree',
-        'Madrasah Education',
-        'Non-Degree Qualification',
-        'Postgraduate Degree',
-        'Secondary School',
-        'Undergraduate Degree',
-        'Other',
+        "Secondary School",
+        "A level",
+        "Undergraduate Degree",
+        "Postgraduate Degree",
+        "Doctorate Degree",
+        "Non-Degree Qualification",
+        "Madrasah Education",
+        "Other Education Level"
     ],
     'figure' => [
         'Average',
@@ -58,7 +58,7 @@ return [
         'No',
         'Yes',
     ],
-    'knows_cooking' => [
+    'cookingOptions' => [
         'I am learning cooking & will cook at my in-law’s house',
         'I know cooking but am not an expert',
         'I don’t know cooking at all',
@@ -81,7 +81,7 @@ return [
         'Within 3 months',
         'Within 6 months',
     ],
-    'parents_status' => [
+    'parentsStatusOptions' => [
         'Both Alive',
         'Both Dead',
         'Separated',
@@ -178,10 +178,25 @@ return [
         'Non-smoker',
         'Smoker',
     ],
+    'prayers' => [
+      'Weekly minimum of 35 salah',
+      'Weekly minimum of 30 salah',
+      'Weekly minimum of 25 salah',
+      'Weekly minimum of 20 salah',
+      'Weekly minimum of 15 salah',
+      'Weekly minimum of 10 salah',
+      'Weekly minimum of 05 salah',
+      'Masha-Allah only Jummah',
+    ],
     'spouse_age_preference' => [
         '18-50',
     ],
     'spouse_citizenship' => [
+        'British Citizen',
+        'Indefinite Leave to Remain',
+        'Non-British',
+    ],
+    'citizenship' => [
         'British Citizen',
         'Indefinite Leave to Remain',
         'Non-British',
@@ -228,7 +243,7 @@ return [
         'Never married',
         'Widowed',
     ],
-    'spouse_occupation_preference' => [
+    'spouse_occupationOptions' => [
         'Alim',
         'Accountant',
         'Army',
@@ -276,7 +291,7 @@ return [
         'Modest',
         'Yes',
     ],
-    'spouse_skin_colour' => [
+    'spouse_skinColourOptions' => [
         'Brown',
         'Dark',
         'Doesn’t matter',
@@ -289,7 +304,7 @@ return [
         'No',
         'Yes',
     ],
-    'spouse_living_arrangements' => [
+    'spouse_livingArrangementsOptions' => [
         'Happy to move out at some point after marriage',
         'Prefer to discuss later',
         'Willing to live alone and not with extended family',
@@ -321,4 +336,74 @@ return [
         'Small nikah in mosque/house/small hall',
         'Average wedding',
     ],
+    'lastFajrOptions' => [
+      'Every day I pray',
+      'Yesterday',
+      '1 week ago',
+      '1 month ago',
+      '1 year ago',
+      'I can\'t remember',
+    ],
+    'quranRecitationOptions' =>[
+      'Yes',
+      'Modest',
+      'No',
+    ],
+    'quranReadingOptions'=> [
+      'Every day',
+      '1 week ago',
+      '1 month ago',
+      '1 year ago',
+      '1 decade ago',
+      'I can\'t remember'
+    ],
+    'carOwnershipOptions' =>['Yes', 'No'],
+    'umrahHajjOptions' => ['Completed', 'Not yet'],
+    'wearReligiousDressOptions' => [
+      'Yes',
+      'Modest',
+      'No'
+    ],
+    'spouse_heightOptions' =>[
+      "Doesn't matter",
+      "Minimum 4'",
+      "Minimum 6'"
+    ],
+    'spouse_educationOptions' =>[
+      "Doesn't matter",
+      "Secondary School",
+      "A level",
+      "Graduated",
+      "Postgraduate",
+      "Doctorate Degree",
+      "Madrasah Education",
+      "Non-Degree Qualification",
+      "Other Education Level"
+    ],
+    'areaOfChoiceOptions' => [
+        "Anywhere in the UK",
+        "Only in Greater London",
+        "Only in West Midlands",
+        "Only in East Midlands",
+        "Only in North West",
+        "Only in North East",
+        "Only in South East",
+        "Only in South West",
+        "Only in East of England",
+        "Only in Yorkshire & the Humber",
+        "Only in Scotland",
+        "Only in Wales",
+        "Only in Northern Ireland"
+    ],
+    'guardianRelationshipOptions' =>[
+                    "Mom",
+                    "Dad",
+                    "Uncle",
+                    "Aunty",
+                    "Brother",
+                    "Sister",
+                    "Cousin",
+                    "Friend",
+                    "Relative"
+    ]
 ];
