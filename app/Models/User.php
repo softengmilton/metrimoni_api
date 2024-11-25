@@ -69,12 +69,13 @@ class User extends Authenticatable
         return $this->hasOne(UserProfile::class);
     }
 
+
     /*----------------------------------------
      * Accessors
      ----------------------------------------*/
     public function getPrimaryImageUrlAttribute(): string
     {
-        $defaultImageUrl = asset('assets/default/default_profile.jpg');
+        $defaultImageUrl = asset('assets/default/default_image.jpg');
         if ($this->relationLoaded('primaryImage') && $this->primaryImage) {
             return $this->primaryImage->url;
         }
@@ -84,6 +85,7 @@ class User extends Authenticatable
 
         return $defaultImageUrl;
     }
+
 
 
 }

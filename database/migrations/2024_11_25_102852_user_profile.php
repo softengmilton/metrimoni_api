@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('age')->nullable(); // Example: "18-20", "21-30"
+            $table->enum('role', ['bride', 'groom'])->nullable();
             $table->string('height')->nullable(); // Example: "4'0''-4'6''", "5'4''-6'0''"
             $table->string('skin_colour')->nullable(); // Example: "Brown", "Fair"
             $table->string('figure')->nullable(); // Example: "Slim", "Healthy"
@@ -22,8 +23,8 @@ return new class extends Migration
             $table->string('education')->nullable(); // Example: "Secondary School", "Undergraduate Degree"
             $table->string('profession')->nullable(); // Example: "Accountant", "Doctor"
             $table->string('salary')->nullable(); // Example: "£5,000 - £10,000", "£50,001 - £100,000"
-            $table->string('region')->nullable(); // Example: "Greater London", "West Midlands"
-            $table->string('council')->nullable(); // Example: "Hounslow", can be null
+            $table->unsignedBigInteger('region_id')->nullable();
+            $table->unsignedBigInteger('community_id')->nullable();
             $table->string('houseType')->nullable(); // Example: "Own property", "Council property"
             $table->string('marital_status')->nullable(); // Example: "Never married", "Widowed"
             $table->string('gender')->nullable(); // Example: "Male", "Female"
@@ -59,8 +60,8 @@ return new class extends Migration
             $table->string('spouse_educationPreference')->nullable()->comment('Spouse education preference');
             $table->string('spouse_religiousDress')->nullable()->comment('Religious dress preference');
             $table->string('spouse_agePreference')->nullable()->comment('Spouse age preference');
-            $table->string('spouse_areaOfChoice')->nullable()->comment('Preferred area of residence');
-            $table->string('spouse_preferCouncil')->nullable()->comment('Preferred council');
+            $table->unsignedBigInteger('spouse_region_id')->nullable()->comment('Preferred area of residence');
+            $table->unsignedBigInteger('spouse_community_id')->nullable()->comment('Preferred community');
             $table->string('spouse_marital_status')->nullable()->comment('Preferred marital status');
             $table->string('spouse_considerDivorce')->nullable()->comment('Consider divorced spouse');
             $table->string('spouse_considerDivorceWithChildren')->nullable()->comment('Consider divorced spouse with children');
@@ -78,6 +79,11 @@ return new class extends Migration
             // ID Verification
             $table->boolean('id_verified')->default(false); // Whether the ID is verified
             $table->unsignedBigInteger('user_id')->nullable();
+            // Foreign key constraints
+            $table->foreign('region_id')->references('id')->on('regions')->onDelete('set null');
+            $table->foreign('community_id')->references('id')->on('communities')->onDelete('set null');
+            $table->foreign('spouse_region_id')->references('id')->on('regions')->onDelete('set null');
+            $table->foreign('spouse_community_id')->references('id')->on('communities')->onDelete('set null');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -88,6 +94,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_profiles');
+        //
     }
 };

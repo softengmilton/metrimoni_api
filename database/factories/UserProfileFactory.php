@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Community;
+use App\Models\Region;
 use App\Models\User;
 use App\Models\UserProfile;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -24,6 +26,7 @@ class UserProfileFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'age' => $this->faker->randomElement(['18-20', '21-30', '31-40']),
+            'role' => $this->faker->randomElement(['bride', 'groom']),
             'height' => $this->faker->randomElement(["4'0''-4'6''", "5'4''-6'0''"]),
             'skin_colour' => $this->faker->randomElement(['Brown', 'Fair']),
             'figure' => $this->faker->randomElement(['Slim', 'Healthy']),
@@ -31,8 +34,8 @@ class UserProfileFactory extends Factory
             'education' => $this->faker->randomElement(['Secondary School', 'Undergraduate Degree']),
             'profession' => $this->faker->randomElement(['Accountant', 'Doctor']),
             'salary' => $this->faker->randomElement(['£5,000 - £10,000', '£50,001 - £100,000']),
-            'region' => $this->faker->randomElement(['Greater London', 'West Midlands']),
-            'council' => $this->faker->randomElement(['Hounslow', null]),
+            'region_id' => $this->faker->randomElement(Region::pluck('id')->toArray()),
+            'community_id' =>$this->faker->randomElement(Community::pluck('id')->toArray()),
             'houseType' => $this->faker->randomElement(['Own property', 'Council property']),
             'marital_status' => $this->faker->randomElement(['Never married', 'Widowed']),
             'gender' => $this->faker->randomElement(['Male', 'Female']),
@@ -64,8 +67,8 @@ class UserProfileFactory extends Factory
             'spouse_educationPreference' => $this->faker->randomElement(['Secondary School', 'Undergraduate Degree']),
             'spouse_religiousDress' => $this->faker->randomElement(['Yes', 'Modest', 'No']),
             'spouse_agePreference' => $this->faker->randomElement(['18-25', '26-35']),
-            'spouse_areaOfChoice' => $this->faker->randomElement(['Greater London', 'West Midlands']),
-            'spouse_preferCouncil' => $this->faker->randomElement(['Yes', 'No']),
+            'spouse_region_id' => $this->faker->randomElement(Region::pluck('id')->toArray()),
+            'spouse_community_id' => $this->faker->randomElement(Community::pluck('id')->toArray()),
             'spouse_marital_status' => $this->faker->randomElement(['Never married', 'Widowed']),
             'spouse_considerDivorce' => $this->faker->randomElement(['Yes', 'No']),
             'spouse_considerDivorceWithChildren' => $this->faker->randomElement(['Yes', 'No']),
@@ -80,7 +83,7 @@ class UserProfileFactory extends Factory
             'guardianWhatsApp' => $this->faker->phoneNumber(),
             'agreement' => $this->faker->boolean(),
             'id_verified' => $this->faker->boolean(),
-            'user_id' =>\App\Models\User::factory()// You can link this to a User model if needed
+            'user_id' => \App\Models\User::factory(), // Reference to a User model
         ];
     }
 }

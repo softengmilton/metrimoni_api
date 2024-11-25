@@ -45,6 +45,7 @@ class RegisterRequest extends FormRequest
                 : 'required|string|min:6',
 
             'personalDetails.name' => 'required',
+            'personalDetails.role' => 'required|in:bride,groom',
             'personalDetails.age' => 'required',
             'personalDetails.height' => 'required',
             'personalDetails.skin_colour' => 'required',
@@ -53,8 +54,8 @@ class RegisterRequest extends FormRequest
             'personalDetails.education' => 'required',
             'personalDetails.profession' => 'required',
             'personalDetails.salary' => 'required',
-            'personalDetails.region' => 'required',
-            // 'personalDetails.council' => 'required',
+            'personalDetails.region_id' => 'required',
+            'personalDetails.community_id' => 'required',
             'personalDetails.houseType' => 'required',
             'personalDetails.marital_status' => 'required',
             'personalDetails.gender' => 'required',
@@ -90,8 +91,8 @@ class RegisterRequest extends FormRequest
             'spouseExpectation.spouse_educationPreference' => 'required',
             'spouseExpectation.spouse_religiousDress' => 'required',
             'spouseExpectation.spouse_agePreference' => 'required',
-            'spouseExpectation.spouse_areaOfChoice' => 'required',
-            // 'spouseExpectation.preferCouncil' => 'required',
+            'spouseExpectation.spouse_region_id' => 'required',
+            'spouseExpectation.spouse_community_id' => 'required',
             'spouseExpectation.spouse_marital_status' => 'required',
             'spouseExpectation.spouse_considerDivorce' => 'required',
             'spouseExpectation.spouse_considerDivorceWithChildren' => 'required',
@@ -111,6 +112,8 @@ class RegisterRequest extends FormRequest
             'agreeMent.photo' => $isUpdating
             ? 'nullable' // Not required during updates
             : 'required',
+
+
         ];
     }
 
@@ -134,6 +137,7 @@ class RegisterRequest extends FormRequest
 
             // Personal Information
             'personalDetails.name.required' => 'The name is required.',
+            'personalDetails.role.in' => 'The role must be either bride or groom.',
             'personalDetails.age.required' => 'Please provide your age.',
             'personalDetails.height.required' => 'Please provide your height.',
             'personalDetails.skin_colour.required' => 'Please specify your skin colour.',
@@ -143,7 +147,7 @@ class RegisterRequest extends FormRequest
             'personalDetails.profession.required' => 'Please provide your profession.',
             'personalDetails.salary.required' => 'Please provide your salary.',
             'personalDetails.region.required' => 'Please specify your region.',
-            'personalDetails.council.required' => 'Please provide your council.',
+            'personalDetails.community_id.required' => 'Please provide your council.',
             'personalDetails.houseType.required' => 'Please specify your house type.',
             'personalDetails.marital_status.required' => 'Please specify your marital status.',
             'personalDetails.gender.required' => 'Please specify your gender.',
@@ -179,8 +183,8 @@ class RegisterRequest extends FormRequest
             'spouseExpectation.spouse_educationPreference.required' => 'Please specify your education preference.',
             'spouseExpectation.spouse_religiousDress.required' => 'Please specify if you want your spouse to wear religious dress.',
             'spouseExpectation.spouse_agePreference.required' => 'Please specify your age preference.',
-            'spouseExpectation.spouse_areaOfChoice.required' => 'Please specify your area of choice for your spouse.',
-            'spouseExpectation.spouse_preferCouncil.required' => 'Please specify if you prefer a certain council.',
+            'spouseExpectation.spouse_region_id.required' => 'Please specify your area of choice for your spouse.',
+            'spouseExpectation.spouse_community_id.required' => 'Please specify if you prefer a certain council.',
             'spouseExpectation.spouse_marital_status.required' => 'Please specify your preference for your spouse\'s marital status.',
             'spouseExpectation.spouse_considerDivorce.required' => 'Please specify if you are willing to consider a divorced person.',
             'spouseExpectation.spouse_considerDivorceWithChildren.required' => 'Please specify if you are willing to consider a divorced person with children.',
